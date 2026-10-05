@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>El proveedor escondido</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  .board {
+    display: grid;
+    grid-template-columns: repeat(4, 150px); /* 🔥 cartas más compactas */
+    gap: 40px; /* 🔥 más espacio entre cartas */
+    justify-content: center;
+  }
+  .card {
+    width: 150px;
+    height: 210px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em; /* 🔥 letra más grande */
+    text-align: center;
+    padding: 12px;
+  }
+  .card-front {
+    background: url('https://thumbs.dreamstime.com/b/dise%C3%B1o-m%C3%ADstico-dorado-de-reverso-cartas-tarot-celestiales-con-s%C3%ADmbolos-ojo-luna-y-estrellas-439634827.jpg') no-repeat center/cover;
+    color: white;
+  }
+  .card-back {
+    background: white;
+    color: #333;
+    transform: rotateY(180deg);
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>✨ El proveedor escondido ✨</h1>
+
+<audio id="flipSound" preload="auto">
+  <source src="https://jetta.vgmtreasurechest.com/soundtracks/legend-of-zelda-the-ocarina-of-time-1998-n64/enmgypbqlh/015.%20Get%20Heart%20Container.mp3" type="audio/mpeg">
+</audio>
+
+<div class="board">
+
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">AMOLCA</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">E171350</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">CUNME Extranjero</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">N1636023</div></div></div>
+
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">55-4613-1603</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">RGS LIBROS, S.A. DE C.V.</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">RAÚL ESTUARDO ARROYAVE GALVEZ / LIBRERÍA ARROYAVE</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">N1212260</div></div></div>
+
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">DOBME</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">CGFMN</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">No. de Proveedor: N2397329</div></div></div>
+  <div class="card" onclick="flipCard(this)"><div class="card-inner"><div class="card-front"></div><div class="card-back">INNOVACIÓN BIBLIOGRÁFICA, S.A. DE C.V. Extranjero</div></div></div>
+
+</div>
+
+<script>
+function flipCard(card) {
+  if (!card.classList.contains('flipped')) {
+    card.classList.add('flipped');
+    const sound = document.getElementById('flipSound');
+    sound.currentTime = 0;
+    sound.play().catch(err => console.log("Error al reproducir:", err));
+  }
+}
+</script>
+
+</body>
+</html>
+
+
